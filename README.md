@@ -57,6 +57,14 @@ Random command: The following are random command that affects the rng stuff. Fir
 - `villager/townnpc/npc` : Any one of this secondary command toggles changeVillagers
 - `all/everything` : Any one of this secondary command toggles changeEverything
 
+## Some IDs
+Some of these are listed down in npcConfig already.
+ - ugly shit from AT:302100 
+ - elins: 500400,203605,203606,203607,510480,510280(mirr) 
+ - slime:800470 
+ - mushroom:800460 
+ - SpiritOfFury:303360
+ - Lachelith:303260
 
 ## Bugs
 As mentioned earlier, theres plenty of bugs due to the nature of the game itself.
