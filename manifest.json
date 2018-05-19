@@ -2,9 +2,9 @@
     "files": {
         "config.json": {
 			"overwrite":false,
-			"hash":"0d5dc13e8b8e9601cb1e14518c58a05c6730456fcb79cb26e60fe75cf3ebe578"
+			"hash": "d878ff05d1a2b1bdb98f7af51a85ed98f99a5c6f51e71ba027ffb6a83ef46a65"
 			},
-        "index.js": "7eb01183f95e3535305febaa79516a55c40435573181d89e72da254011bee98f",
+        "index.js": "2ac90a5dc74a2ed567f8bb7bd2d4309a8153c0ca6f6c268c554a3a08d1aea9cb",
         "module.json": "769db2a40fcae5ba3e53f1cd31a0119d7fb816fb0b107ea21ab0f025a1e241f3",
         "npcConfig.js": {
 			"overwrite":false,

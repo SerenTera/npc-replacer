@@ -6,6 +6,7 @@ module.exports = function customNpc(dispatch) {
 		command = Command(dispatch)
 		
 	let {enabled,
+		checkDespawn,
 		customChange,
 		changeOnlyPlayerSummons,
 		changeAllSummonsRandomly,
@@ -19,7 +20,8 @@ module.exports = function customNpc(dispatch) {
 		lengthVillagers = villagersRngAppearance.length,
 		lengthSummons = summonsRngAppearance.length,
 		lengthEverything = everythingRngAppearance.length,
-		gameId
+		gameId,
+		changed = {}
 	
 	
 /////Commands	
@@ -36,6 +38,11 @@ module.exports = function customNpc(dispatch) {
 			case 'custom':
 				customChange = !customChange
 				command.message(`(Custom Npc) customChange: ${customChange ? 'Enabled' : 'Disabled'}`)
+				break
+			case 'despawn':
+				checkDespawn = !checkDespawn
+				changed = {}
+				command.message(`(Custom Npc) checkDespawn: ${checkDespawn ? 'Enabled' : 'Disabled'}`)
 				break
 			case 'random':
 				if(arg2 === undefined) command.message(`(Custom Npc) Wrong Command, missing second argument`)
@@ -84,35 +91,54 @@ module.exports = function customNpc(dispatch) {
 		if(npcConfig[event.huntingZoneId] && npcConfig[event.huntingZoneId][event.templateId] && customChange) {//Have to do this else alot of errors
 			if(!changeOnlyPlayerSummons) {
 				event.unk1 = npcConfig[event.huntingZoneId][event.templateId]
+				if(checkDespawn) changed[event.gameId] = true
 				return true
 			}	
 			else if(event.owner.equals(gameId)) {
 				event.unk1 = npcConfig[event.huntingZoneId][event.templateId]
+				if(checkDespawn) changed[event.gameId] = true
 				return true
 			}	
 		}
 				
 		else if(changeEverything) { //take out else if
 			event.unk1 = everythingRngAppearance[rngesus(lengthEverything)]
+			if(checkDespawn) changed[event.gameId] = true
 			return true
 		}
 		
 		else if(changeAllSummonsRandomly && event.templateId === 1023) {
 			event.unk1 = summonsRngAppearance[rngesus(lengthSummons)]
+			if(checkDespawn) changed[event.gameId] = true
 			return true
 		}
 		else if(changePlayerSummonsRandomly && event.owner.equals(gameId) && event.templateId === 1023) {
 			event.unk1 = summonsRngAppearance[rngesus(lengthSummons)]
+			if(checkDespawn) changed[event.gameId] = true
 			return true
 		}
 		
 		else if(changeVillagers && event.villager && event.owner == 0) {
 			event.unk1 = villagersRngAppearance[rngesus(lengthVillagers)]
+			if(checkDespawn) changed[event.gameId] = true
 			return true
 		}
 	})
 	
+	dispatch.hook('S_LOAD_TOPO', 'raw' ,() => {
+		changed = {}
+	})
 	
+	dispatch.hook('S_DESPAWN_NPC', 3 , event => {
+		if(!checkDespawn) return
+		
+		if(changed[event.gameId]) { 
+			event.type = 1 //no death animation if it is shape swapped
+			delete changed[event.gameId]
+			return true
+		}
+	})
+			
 /////Function
 	function rngesus(length){
 		return Math.floor(Math.random() * length)
