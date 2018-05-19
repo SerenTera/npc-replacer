@@ -4,6 +4,8 @@ A Tera Proxy Module to replace Npc/summons with custom shape
 ## Basic Info
 This module allows you to change the appearance of NPC while maintaining it's original functions like skill usages in summons or npc dialogs etc...
 
+Elin-npc module written by me is also included in this, so you can just remove the other module if you are using this.
+
 However, it will certainly bug out texture wise. Summons might also stay around for 5 seconds after being unsummoned for some reason.
 
 Requires
