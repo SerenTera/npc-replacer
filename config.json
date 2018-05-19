@@ -1,0 +1,15 @@
+{
+	"moduleVersion": "1.0.0",
+	"enabled":true,
+	"customChange":true,
+	"changeOnlyPlayerSummons":true,
+	"changeAllSummonsRandomly":false,
+	"changePlayerSummonsRandomly": false,
+	"summonsRngAppearance": [0],
+	"changeVillagers":true,
+	"villagersRngAppearance": [500400,203605,203606,203607,510480,510280],
+	"changeEverything":false,
+	"everythingRngAppearance": [500400,203605,203606,203607,510480,510280]
+}
+	
+	

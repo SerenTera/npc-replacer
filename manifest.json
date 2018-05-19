@@ -1,0 +1,18 @@
+{
+    "files": {
+        "config.json": {
+			"overwrite":false,
+			"hash":"0d5dc13e8b8e9601cb1e14518c58a05c6730456fcb79cb26e60fe75cf3ebe578"
+			},
+        "index.js": "7eb01183f95e3535305febaa79516a55c40435573181d89e72da254011bee98f",
+        "module.json": "769db2a40fcae5ba3e53f1cd31a0119d7fb816fb0b107ea21ab0f025a1e241f3",
+        "npcConfig.js": {
+			"overwrite":false,
+			"hash":"2ae47f58f2bb5168609ee2e0084a80ff4c703bb3798b3237f0f183bf67316ca5"
+		}
+    },
+    "defs": {
+        "S_LOGIN": 10,
+        "S_SPAWN_NPC": 8
+    }
+}
