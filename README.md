@@ -60,7 +60,7 @@ Random command: The following are random command that affects the rng stuff. Fir
 
 ## Bugs
 As mentioned earlier, theres plenty of bugs due to the nature of the game itself.
-- Summons can take a long time to despawn sometimes
+- Summons can take a long time to despawn sometimes (fixed by setting checkDespawn in config to true)
 - T-pose will occur for some shapeId if they are walking/doing animation not supported by the shape
 - Broken Face Textures will occur for using shapeId of some elins on summons, such as hb-bot
 - Animation can be too fast for some shapeId
