@@ -21,7 +21,8 @@ module.exports = function customNpc(dispatch) {
 		lengthSummons = summonsRngAppearance.length,
 		lengthEverything = everythingRngAppearance.length,
 		gameId,
-		changed = {}
+		changed = {},
+		inDungeon = false
 	
 	
 /////Commands	
@@ -29,6 +30,7 @@ module.exports = function customNpc(dispatch) {
 		if(arg === undefined) {
 			enabled = !enabled
 			command.message(`(Custom Npc) Module is ${enabled ? 'Enabled' : 'Disabled'}`)
+			return
 		}
 		switch(arg.toLowerCase()) {
 			case 'owned':
@@ -69,7 +71,7 @@ module.exports = function customNpc(dispatch) {
 					case 'everything':
 						changeEverything = !changeEverything
 						command.message(`(Custom Npc) changeEverything: ${changeEverything? 'Enabled' : 'Disabled'}`)
-						if(changeEverything) command.message(`(Custom Npc) This mode can bug your game out! Use with care and your own discretion.`)
+						if(changeEverything) command.message(`(Custom Npc) This mode can bug your game out! Use at your own risk and your own discretion ;)`)
 						break
 					default:
 						command.message(`(Custom Npc) Wrong Command, error in second argument. (player/all/villager)`)
@@ -118,14 +120,15 @@ module.exports = function customNpc(dispatch) {
 			return true
 		}
 		
-		else if(changeVillagers && event.villager && event.owner == 0) {
+		else if(changeVillagers && event.villager && event.owner == 0 && !inDungeon) {
 			event.unk1 = villagersRngAppearance[rngesus(lengthVillagers)]
 			if(checkDespawn) changed[event.gameId] = true
 			return true
 		}
 	})
 	
-	dispatch.hook('S_LOAD_TOPO', 'raw' ,() => {
+	dispatch.hook('S_LOAD_TOPO', 3 ,() => {
+		inDungeon = event.zone > 9000
 		changed = {}
 	})
 	
