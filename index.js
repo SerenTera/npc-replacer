@@ -127,7 +127,7 @@ module.exports = function customNpc(dispatch) {
 		}
 	})
 	
-	dispatch.hook('S_LOAD_TOPO', 3 ,() => {
+	dispatch.hook('S_LOAD_TOPO', 3 , event => {
 		inDungeon = event.zone > 9000
 		changed = {}
 	})
