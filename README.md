@@ -8,6 +8,12 @@ Elin-npc module written by me is also included in this, so you can just remove t
 
 However, it will certainly bug out texture wise. Summons might also stay around for 5 seconds after being unsummoned due to death animation. Set checkDespawn to true to fix this long despawn
 
+Here is a list of shapeId and their corresponding Animation Name:
+
+https://raw.githubusercontent.com/SerenTera/npc-replacer/master/shapeId.json
+
+This is the best I can do for now, search using the names like Popori_F for elins, mushroom for the mushroom, etc...
+## Requirements
 Requires
 - Tera Proxy
 - S_SPAWN_NPC version 8 (Update tera-data if you need to)
