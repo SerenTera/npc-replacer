@@ -58,7 +58,7 @@ Random command: The following are random command that affects the rng stuff. Fir
 - `all/everything` : Any one of this secondary command toggles changeEverything
 
 ## Some IDs
-Some of these are listed down in npcConfig already.
+Some of these are listed down in npcConfig already. Additional info can be found in NpcShape.xml in this mod.
  - ugly shit from AT:302100 
  - elins: 500400,203605,203606,203607,510480,510280(mirr) 
  - slime:800470 
