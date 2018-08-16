@@ -87,41 +87,41 @@ module.exports = function customNpc(dispatch) {
 		({gameId} = event)
 	})
 	
-	dispatch.hook('S_SPAWN_NPC', 8 , event => {
+	dispatch.hook('S_SPAWN_NPC', 9 , event => {
 		if(!enabled) return
 		
 		if(npcConfig[event.huntingZoneId] && npcConfig[event.huntingZoneId][event.templateId] && customChange) {//Have to do this else alot of errors
 			if(!changeOnlyPlayerSummons) {
-				event.unk1 = npcConfig[event.huntingZoneId][event.templateId]
+				event.shapeId = npcConfig[event.huntingZoneId][event.templateId]
 				if(checkDespawn) changed[event.gameId] = true
 				return true
 			}	
 			else if(event.owner.equals(gameId)) {
-				event.unk1 = npcConfig[event.huntingZoneId][event.templateId]
+				event.shapeId = npcConfig[event.huntingZoneId][event.templateId]
 				if(checkDespawn) changed[event.gameId] = true
 				return true
 			}	
 		}
 				
 		else if(changeEverything) { //take out else if
-			event.unk1 = everythingRngAppearance[rngesus(lengthEverything)]
+			event.shapeId = everythingRngAppearance[rngesus(lengthEverything)]
 			if(checkDespawn) changed[event.gameId] = true
 			return true
 		}
 		
 		else if(changeAllSummonsRandomly && event.templateId === 1023) {
-			event.unk1 = summonsRngAppearance[rngesus(lengthSummons)]
+			event.shapeId = summonsRngAppearance[rngesus(lengthSummons)]
 			if(checkDespawn) changed[event.gameId] = true
 			return true
 		}
 		else if(changePlayerSummonsRandomly && event.owner.equals(gameId) && event.templateId === 1023) {
-			event.unk1 = summonsRngAppearance[rngesus(lengthSummons)]
+			event.shapeId = summonsRngAppearance[rngesus(lengthSummons)]
 			if(checkDespawn) changed[event.gameId] = true
 			return true
 		}
 		
 		else if(changeVillagers && event.villager && event.owner == 0 && !inDungeon) {
-			event.unk1 = villagersRngAppearance[rngesus(lengthVillagers)]
+			event.shapeId = villagersRngAppearance[rngesus(lengthVillagers)]
 			if(checkDespawn) changed[event.gameId] = true
 			return true
 		}
