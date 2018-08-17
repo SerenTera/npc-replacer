@@ -7,7 +7,7 @@
 		"npcConfig.js": {
 			"overwrite":false,
 			"hash":"2ae47f58f2bb5168609ee2e0084a80ff4c703bb3798b3237f0f183bf67316ca5"
-		}
+		},
         "index.js": "eb4462e11d732b30986ded7bf19e88aad3e7a5b51ef5e1a97774f18299e361b7",
         "module.json": "769db2a40fcae5ba3e53f1cd31a0119d7fb816fb0b107ea21ab0f025a1e241f3"
     },
