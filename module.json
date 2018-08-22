@@ -1,3 +1,7 @@
 {
+	"disableAutoUpdate": false,
+	"options": {
+		"niceName":"Npc Replacer"
+	},
     "servers": ["https://raw.githubusercontent.com/SerenTera/npc-replacer/master/"]
 }
