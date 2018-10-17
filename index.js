@@ -84,7 +84,7 @@ module.exports = function customNpc(mod) {
 		({gameId} = event)
 	})
 	
-	mod.hook('S_SPAWN_NPC', 9 , event => {
+	mod.hook('S_SPAWN_NPC', 10 , event => {
 		if(!enabled) return
 		
 		if(npcConfig[event.huntingZoneId] && npcConfig[event.huntingZoneId][event.templateId] && customChange) {//Have to do this else alot of errors
