@@ -1,7 +1,11 @@
 {
-	"disableAutoUpdate": false,
-	"options": {
-		"niceName":"Npc Replacer"
-	},
+    "disableAutoUpdate": false,
+    "name": "npc_replacer",
+    "author": "Seren",
+    "description": "Replace NPCs with the shapeId you desire!",
+    "version": "1.0.0",
+    "options": {
+        "niceName":"NPC Replacer"
+    },
     "servers": ["https://raw.githubusercontent.com/SerenTera/npc-replacer/master/"]
 }
