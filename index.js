@@ -80,9 +80,6 @@ module.exports = function customNpc(mod) {
 	})
 	
 //////Hooks	
-	mod.hook('S_LOGIN', 10, (event) => {
-		({gameId} = event)
-	})
 	
 	mod.hook('S_SPAWN_NPC', 10 , event => {
 		if(!enabled) return
@@ -93,7 +90,7 @@ module.exports = function customNpc(mod) {
 				if(checkDespawn) changed[event.gameId] = true
 				return true
 			}	
-			else if(event.owner.equals(gameId)) {
+			else if(mod.game.me.is(event.owner)) {
 				event.shapeId = npcConfig[event.huntingZoneId][event.templateId]
 				if(checkDespawn) changed[event.gameId] = true
 				return true
@@ -111,7 +108,7 @@ module.exports = function customNpc(mod) {
 			if(checkDespawn) changed[event.gameId] = true
 			return true
 		}
-		else if(changePlayerSummonsRandomly && event.owner.equals(gameId) && event.templateId === 1023) {
+		else if(changePlayerSummonsRandomly && mod.game.me.is(event.owner) && event.templateId === 1023) {
 			event.shapeId = summonsRngAppearance[rngesus(lengthSummons)]
 			if(checkDespawn) changed[event.gameId] = true
 			return true
