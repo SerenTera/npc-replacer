@@ -8,11 +8,11 @@
 			"hash":"2ae47f58f2bb5168609ee2e0084a80ff4c703bb3798b3237f0f183bf67316ca5",
 			"overwrite":false
 		},
-        "index.js": "d1a2d875ec40efc5fbb9c3475a3ece491cec3c470fa435bd4c1ca9e027a99987",
+        "index.js": "85bd619e9c3ee5e9f89a50cda7a6d78126c92d66dce57273fd273dbccc769c9c",
         "module.json": "c975ff736697e772a8826152cf15fec9c2e6a54930d5e10664acadc5b5bb22f2"
     },
     "defs": {
-        "S_SPAWN_NPC": 10,
+        "S_SPAWN_NPC": [10,11],
         "S_LOAD_TOPO": 3,
         "S_DESPAWN_NPC": 3
     }
